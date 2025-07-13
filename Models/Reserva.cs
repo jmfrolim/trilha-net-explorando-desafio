@@ -98,8 +98,8 @@ namespace DesafioProjetoHospedagem.Models
 
                 var cultura = new CultureInfo("pt-BR");
                 StringBuilder sbuilder = new StringBuilder($"Os dias reservados são: {DiasReservados}, ");
-                sbuilder.Append($"neles são aplicados {RegraDesconto.PercentualDesconto}% de desconto ");
-                sbuilder.Append($"sendo assim o valor da diária seria {valorDiaria.ToString("C", cultura)} ");
+                sbuilder.Append($"neles são aplicados {RegraDesconto.PercentualDesconto}% de desconto \n");
+                sbuilder.Append($"sendo assim o valor da diária seria {valorDiaria.ToString("C", cultura)} \n");
                 sbuilder.Append($"e {valor.ToString("C", cultura)} o valor total,mas com desconto ficou {valorDesconto.ToString("C", cultura)}!\n");
                 Mensagem = sbuilder.ToString();
             }

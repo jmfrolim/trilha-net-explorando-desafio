@@ -6,21 +6,27 @@ using DesafioProjetoHospedagem.Models;
 Console.OutputEncoding = Encoding.UTF8;
 try
 {
+
     // Cria os modelos de hóspedes e cadastra na lista de hóspedes
     
-    RegraDesconto regraDesconto = new RegraDesconto(10,10m);
-    List<Pessoa> hospedesPremium = new List<Pessoa>();
-    List<Pessoa> hospedes = new List<Pessoa>();
-    List<Pessoa> hospedes2 = new List<Pessoa>();
+    RegraDesconto regraDesconto     = new RegraDesconto(10,10m);
 
-    Pessoa jose = new Pessoa(nome: "Jose da Silva Sauro");
-    Pessoa fulano = new Pessoa(nome: "Fulana de Tal");
+    // Cria a suíte
+    Suite suitePremium  = new Suite(tipoSuite: "Premium", capacidade: 3, valorDiaria: 80);
+    Suite suiteNormal   = new Suite(tipoSuite: "Normal" , capacidade: 2, valorDiaria: 30);
+    
+    List<Pessoa> hospedesPremium    = new List<Pessoa>();
+    List<Pessoa> hospedes           = new List<Pessoa>();
+    List<Pessoa> hospedes2          = new List<Pessoa>();
 
-    Pessoa mariaGasolina = new Pessoa(nome: "Maria Gasolina");
-    Pessoa mariaChuteira = new Pessoa(nome: "Maria Chuteira");
-    Pessoa pedroCafundo = new Pessoa(nome: "Pedro do Cafundo dos Judas");
-    Pessoa joaoTeimoso = new Pessoa(nome: "João da Silva Teimoso");
-    Pessoa judasOOutro = new Pessoa(nome: "Judas o Outro");
+    Pessoa jose     = new Pessoa(nome: "Jose da Silva Sauro");
+    Pessoa fulano   = new Pessoa(nome: "Fulana de Tal");
+
+    Pessoa mariaGasolina    = new Pessoa(nome: "Maria Gasolina");
+    Pessoa mariaChuteira    = new Pessoa(nome: "Maria Chuteira");
+    Pessoa pedroCafundo     = new Pessoa(nome: "Pedro do Cafundo dos Judas");
+    Pessoa joaoTeimoso      = new Pessoa(nome: "João da Silva Teimoso");
+    Pessoa judasOOutro      = new Pessoa(nome: "Judas o Outro");
 
     hospedesPremium.Add(jose);
     hospedesPremium.Add(fulano);
@@ -28,10 +34,6 @@ try
     hospedes.Add(pedroCafundo);
     hospedes.Add(joaoTeimoso);
     hospedes.Add(judasOOutro);
-
-    // Cria a suíte
-    Suite suitePremium = new Suite(tipoSuite: "Premium", capacidade: 3, valorDiaria: 80);
-    Suite suiteNormal = new Suite(tipoSuite: "Normal", capacidade: 2, valorDiaria: 30);
 
     // Cria uma nova reserva, passando a suíte e os hóspedes
     Reserva premium = new Reserva(diasReservados: 5);
@@ -47,7 +49,6 @@ try
     mostrarTracos();
     pulaLinha();
 
-
     hospedes2.Add(mariaChuteira);
     hospedes2.Add(mariaGasolina);
 
@@ -55,6 +56,7 @@ try
     normal2.RegraDesconto = regraDesconto;
     normal2.CadastrarSuite(suiteNormal);
     normal2.CadastrarHospedes(hospedes2);
+
     pulaLinha();
     mostrarTracos();
     exibeMensagem(normal2, "2");
@@ -84,8 +86,7 @@ catch (Exception Exception)
     pulaLinha();    
     Console.WriteLine(Exception.Message);
     Console.ResetColor();
-    mostrarTracos();
-    
+    mostrarTracos();    
 }
 
 
@@ -96,7 +97,7 @@ static void pulaLinha()
 
 static void mostrarTracos()
 {
-    Console.WriteLine("=================================================================================================================================\n");
+    Console.WriteLine("========================================================================================================================\n");
 }
 
 static void exibeMensagem(Reserva reserva, string numero)
@@ -123,3 +124,4 @@ static void exibeMensagemDesconto(string Mensagem)
     }
     Console.WriteLine(Mensagem);
 }
+
